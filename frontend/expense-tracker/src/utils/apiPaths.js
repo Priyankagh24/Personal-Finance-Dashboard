@@ -1,10 +1,13 @@
-export const BASE_URL = "https://personal-finance-dashboard-1-56l1.onrender.com";
 // utils/apiPaths.js
+
+export const BASE_URL = "https://personal-finance-dashboard-1-56l1.onrender.com";
+
 export const API_PATHS = {
   AUTH: {
     LOGIN: "/api/v1/auth/login",
     REGISTER: "/api/v1/auth/register",
     GET_USER_INFO: "/api/v1/auth/getUser",
+    UPLOAD_IMAGE: "/api/v1/auth/upload-image",
   },
   DASHBOARD: {
     GET_DATA: "/api/v1/dashboard",
@@ -20,9 +23,6 @@ export const API_PATHS = {
     GET_ALL_EXPENSE: "/api/v1/expense/get",
     DELETE_EXPENSE: (expenseId) => `/api/v1/expense/${expenseId}`,
     DOWNLOAD_EXPENSE: "/api/v1/expense/downloadexcel",
-  },
-  IMAGE: {
-    UPLOAD_IMAGE: "/api/v1/auth/upload-image",
   },
 };
 
