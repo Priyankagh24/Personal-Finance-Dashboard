@@ -15,7 +15,7 @@ app.use("/api/v1", debugRoutes);
 // Middleware to handle CORS
 app.use(
 cors ({
-origin: process.env.CLIENT_URL || "*" ,
+origin: "https://personal-finance-dashboard-8.onrender.com/login" ,
 methods: ["GET" ,"POST","PUT", "DELETE"],
 allowedHeaders :["Content-Type" ,"Authorization"] ,
 })
