@@ -1,6 +1,6 @@
 // utils/apiPaths.js
 
-export const BASE_URL = "https://personal-finance-dashboard-1-56l1.onrender.com";
+export const BASE_URL = "https://personal-finance-dashboard-9.onrender.com"
 
 export const API_PATHS = {
   AUTH: {
