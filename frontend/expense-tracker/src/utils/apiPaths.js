@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = "https://personal-finance-dashboard-1-56l1.onrender.com";
 // utils/apiPaths.js
 export const API_PATHS = {
   AUTH: {
