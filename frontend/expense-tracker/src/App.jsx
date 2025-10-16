@@ -1,5 +1,8 @@
 import React from 'react'
+<<<<<<< HEAD
 
+=======
+>>>>>>> cd895c62f8d521183ca06bc4cb090d0c9afa3ccb
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,6 +16,7 @@ import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./context/UserContext";
+<<<<<<< HEAD
 import {Toaster} from "react-hot-toast";
 
 const Root =()=>{
@@ -53,6 +57,45 @@ toastOptions={{
       },
     }}
     />
+=======
+import { Toaster } from "react-hot-toast";
+
+// ✅ PrivateRoute wrapper
+const PrivateRoute = ({ children }) => {
+  const isAuthenticated = !!localStorage.getItem("token");
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
+
+const App = () => {
+  return (
+    <UserProvider>
+      <div>
+        <Router>
+          <Routes>
+            {/* Default route → redirect to login or dashboard */}
+            <Route path="/" element={
+              localStorage.getItem("token") ? <Navigate to="/dashboard" /> : <Navigate to="/login" />
+            } />
+
+            {/* Public routes */}
+            <Route path="/login" element={<Login />} /> 
+            <Route path="/signup" element={<SignUp />} /> 
+
+            {/* Protected routes */}
+            <Route path="/dashboard" element={<PrivateRoute><Home /></PrivateRoute>} /> 
+            <Route path="/income" element={<PrivateRoute><Income /></PrivateRoute>} /> 
+            <Route path="/expense" element={<PrivateRoute><Expense /></PrivateRoute>} /> 
+          </Routes>
+        </Router>
+      </div>
+
+      <Toaster
+        toastOptions={{
+          className: "",
+          style: { fontSize: '13px' },
+        }}
+      />
+>>>>>>> cd895c62f8d521183ca06bc4cb090d0c9afa3ccb
     </UserProvider>
   )
 }
