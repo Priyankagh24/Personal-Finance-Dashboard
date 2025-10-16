@@ -1,0 +1,53 @@
+/* Login.css */
+
+.login-container {
+  width: 70%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-welcome-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0;
+}
+
+.login-subtitle {
+  font-size: 0.75rem;
+  color: #334155; /* slate-700 */
+  margin-top: 5px;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+  .login-container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .login-container {
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+  }
+  
+  .login-welcome-title {
+    font-size: 1.125rem;
+  }
+  
+  .login-subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+}

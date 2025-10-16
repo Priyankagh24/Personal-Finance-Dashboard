@@ -1,0 +1,166 @@
+/* AuthLayout.css */
+
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left side - Login/Auth Form */
+.auth-left {
+  width: 100%;
+  padding: 2rem 3rem;
+  background-color: white;
+}
+
+.auth-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+/* Right side - Purple background with decorative elements */
+.auth-right {
+  display: none;
+  width: 40%;
+  background-color: #f3e8ff; /* purple-100 */
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-right.visible {
+  display: flex;
+}
+
+/* Background decorative shapes */
+.decorative-shape-1 {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 1.5rem;
+  background-color: #7c3aed; /* purple-600 */
+  position: absolute;
+  top: -3rem;
+  right: 24rem;
+  
+}
+
+.decorative-shape-2 {
+  width: 10rem;
+  height: 12rem;
+  border-radius: 1.5rem;
+  border: 16px solid #c026d3; /* purple-500 */
+  position: absolute;
+  bottom: 5rem;
+  right: -2rem;
+  top:13rem;
+  
+}
+
+.decorative-shape-3 {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 1.5rem;
+  background-color: #8b5cf6; /* purple-500 */
+  position: absolute;
+  bottom: -3rem;
+  left: 0rem;
+  
+  
+}
+
+/* Content container */
+.auth-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  top:-4rem;
+  
+}
+
+/* Stats card */
+.stats-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 24rem;
+  width: 100%;
+ 
+}
+
+.stats-card-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stats-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #7c3aed; /* purple-600 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  
+}
+
+.stats-text {
+  flex: 1;
+}
+
+.stats-label {
+  font-size: 0.875rem;
+  color: #6b7280; /* gray-500 */
+  margin-bottom: 0.25rem;
+}
+
+.stats-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827; /* gray-900 */
+}
+
+/* Dashboard preview image */
+.dashboard-preview {
+  position: relative;
+  top:8rem;
+}
+
+.dashboard-image {
+  max-width: 24rem;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .auth-left {
+    width: 60%;
+  }
+  
+  .auth-right {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .auth-left {
+    padding: 2rem 1.5rem;
+  }
+  
+  .auth-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
