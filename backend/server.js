@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use("/api/v1", debugRoutes);
 // Middleware to handle CORS
-import cors from "cors";
+
 
 app.use(cors({
   origin: [
