@@ -13,16 +13,19 @@ const app = express();
 app.use(express.json());
 app.use("/api/v1", debugRoutes);
 // Middleware to handle CORS
-app.use(
-cors ({
-origin: [ "http://localhost:5173",
-    "https://finaancetracker.netlify.app"],
-methods: ["GET" ,"POST","PUT", "DELETE"],
-allowedHeaders :["Content-Type" ,"Authorization"] ,
-})
-);
+import cors from "cors";
 
-app.options("*", cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://finaancetracker.netlify.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+
+
 app.use((req, res, next) => {
   console.log("Request body:", req.body);
   next();
