@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./apiPaths";
 
 const axiosInstance = axios.create({
-baseURL: "https://personal-finance-dashboard-45.onrender.com/api/v1/auth/login",
+baseURL: "https://personal-finance-dashboard-45.onrender.com",
 timeout: 10000,
  
 headers: {
