@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./apiPaths";
 
 const axiosInstance = axios.create({
-baseURL: "https://your-backend-name.onrender.com",
+baseURL: "https://expense-tracker-backend-smoz.onrender.com",
 timeout: 1000,
  
 headers: {
