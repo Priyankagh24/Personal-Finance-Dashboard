@@ -16,12 +16,13 @@ app.use("/api/v1", debugRoutes);
 app.use(
 cors ({
 origin: [ "http://localhost:5173",
-    "https://your-frontend-name.netlify.app"],
+    "https://finaancetracker.netlify.app"],
 methods: ["GET" ,"POST","PUT", "DELETE"],
 allowedHeaders :["Content-Type" ,"Authorization"] ,
 })
 );
 
+app.options("*", cors());
 app.use((req, res, next) => {
   console.log("Request body:", req.body);
   next();
