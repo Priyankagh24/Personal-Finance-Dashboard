@@ -15,7 +15,8 @@ app.use("/api/v1", debugRoutes);
 // Middleware to handle CORS
 app.use(
 cors ({
-origin: process.env.CLIENT_URL|| "*" ,
+origin: [ "http://localhost:5173",
+    "https://your-frontend-name.netlify.app"],
 methods: ["GET" ,"POST","PUT", "DELETE"],
 allowedHeaders :["Content-Type" ,"Authorization"] ,
 })
