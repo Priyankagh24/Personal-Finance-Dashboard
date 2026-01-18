@@ -21,7 +21,7 @@ const AuthLayout = ({ children }) => {
 
         <div className="auth-content">
           <div className="stats-card">
-            <div className="stats-card-content">
+            <div className="stats-c ard-content">
               <div className="stats-icon">
                 <LuTrendingUpDown />
               </div>

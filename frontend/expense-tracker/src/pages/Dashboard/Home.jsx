@@ -31,6 +31,8 @@ const Home = () => {
     try {
       const response = await axiosInstance.get(API_PATHS.DASHBOARD.GET_DATA);
       console.log("Dashboard API response full:", response.data);
+      console.log("DASHBOARD DATA:", response.data);
+
       if (response.data) {
         
         setDashboardData(response.data);
@@ -44,20 +46,27 @@ const Home = () => {
 
   // 🟢 Safe fallback for last 30 days expenses
 // 🟢 General safe fallback for last 30 days expenses
-const last30Transactions = (Array.isArray(dashboardData?.last30DaysExpenses?.transactions) &&
-                           dashboardData.last30DaysExpenses.transactions.length > 0)
-  ? dashboardData.last30DaysExpenses.transactions
-  : (Array.isArray(dashboardData?.recentTransactions)
-      ? dashboardData.recentTransactions
-          .filter(txn => txn.type === "expense")  // only expenses
-          .map((txn, index) => ({
-            _id: txn._id || index,
-            category: txn.category || txn.source || "Unknown",
-            amount: txn.amount || 0,
-            date: txn.date || new Date().toISOString(),
-            icon: txn.icon || null
-          }))
-      : []);
+const last30Transactions =
+  Array.isArray(dashboardData?.last30DaysExpenses?.transactions)
+    ? dashboardData.last30DaysExpenses.transactions
+    : [];
+
+
+
+      const last60IncomeTransactions =
+  Array.isArray(dashboardData?.last60DaysIncome?.transactions)
+    ? dashboardData.last60DaysIncome.transactions.map((txn) => ({
+        ...txn,
+        createdAt: txn.date, // normalize for chart components
+      }))
+    : [];
+
+    console.log(
+  "last60DaysIncome object:",
+  dashboardData?.last60DaysIncome
+);
+
+
 
 
   return (
@@ -100,19 +109,17 @@ const last30Transactions = (Array.isArray(dashboardData?.last30DaysExpenses?.tra
           <Last30DaysExpenses data={last30Transactions} />
 
           {/* Recent Income Chart & List */}
-          <RecentIncomeWithChart
-            data={Array.isArray(dashboardData?.last60DaysIncome?.transactions)
-              ? dashboardData.last60DaysIncome.transactions.slice(0, 4)
-              : []}
-            totalIncome={dashboardData?.totalIncome || 0}
-          />
+   <RecentIncomeWithChart
+  data={last60IncomeTransactions.slice(0, 4)}
+  totalIncome={dashboardData?.totalIncome || 0}
+/>
 
-          <RecentIncome
-            transactions={Array.isArray(dashboardData?.last60DaysIncome?.transactions)
-              ? dashboardData.last60DaysIncome.transactions
-              : []}
-            onSeeMore={() => navigate("/income")}
-          />
+
+   <RecentIncome
+  transactions={last60IncomeTransactions}
+  onSeeMore={() => navigate("/income")}
+/>
+
         </div>
 
         {/* Debugging */}
